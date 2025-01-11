@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "@types/jasmine": "^5.1.5",
+    "jasmine-core": "^5.5.0",
+    "jasmine-spec-reporter": "^7.0.0"
+  },
+  "dependencies": {
+    "@angular/router": "^19.0.6"
+  }
+}
