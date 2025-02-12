@@ -1,0 +1,32 @@
+<h1>prueba de comunicacion con el webApi</h1>
+
+@for (clima of climas; track $index) {
+<div>
+  <div>fecha:{{ clima.date }}</div>
+  <div>temperatura: {{ clima.temperatureC }}</div>
+</div>
+<hr />
+}
+
+
+<form (submit)="verificarExistencia()" [formGroup]="form">
+  <label for="">Nombre</label>
+  <input type="text" [formControl]="form.controls.nombre"  matInput/>
+  <button mat-flat-button type="submit">Enviar</button>
+</form>
+
+
+@if (sg) {
+  <div >
+    <p>No se encontró una coincidencia exacta, pero encontramos estas sugerencias:</p>
+    <ul>
+      @for (nombre of sugerencias; track nombre) {
+        <li>{{ nombre }}</li>}
+    </ul>
+  </div>
+}
+
+
+@if (!existe) {
+  <h1>no se encontro ninguna laptop</h1>
+}
