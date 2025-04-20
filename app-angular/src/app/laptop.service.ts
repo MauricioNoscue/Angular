@@ -38,4 +38,3 @@ export class LaptopService {
     return this.http.delete(`${this.urlBase}/${id}`)
   }
 }
-

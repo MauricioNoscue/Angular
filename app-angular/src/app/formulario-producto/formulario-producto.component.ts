@@ -20,8 +20,6 @@ export class FormularioProductoComponent implements OnInit{
     nombre: [''],
   })
 
-
-
   @Input({required:true})
   titulo!:string
   @Input()
@@ -35,12 +33,9 @@ export class FormularioProductoComponent implements OnInit{
     }
   }
 
-
-
   guardarCambios(){
     let laptop = this.form.value as LaptopCreacion;
     this.posteoFormulario.emit(laptop)
-
 
     console.log(this.form.value)
   }
