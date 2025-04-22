@@ -1,0 +1,8 @@
+<ng-container *ngIf="modelo">
+    <app-formulario-form-module
+      titulo="Editar vínculo Form-Module"
+      [modelo]="modelo"
+      (posteoFormulario)="guardarCambios($event)">
+    </app-formulario-form-module>
+  </ng-container>
+  

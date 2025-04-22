@@ -1,0 +1,21 @@
+<h1>{{ titulo }}</h1>
+
+<form [formGroup]="form" (ngSubmit)="guardarCambios()">
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Formulario</mat-label>
+    <mat-select formControlName="formId">
+      <mat-option *ngFor="let f of forms" [value]="f.id">{{ f.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Módulo</mat-label>
+    <mat-select formControlName="moduleId">
+      <mat-option *ngFor="let m of modules" [value]="m.id">{{ m.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="acciones">
+    <button mat-flat-button color="primary" type="submit">Guardar</button>
+  </div>
+</form>

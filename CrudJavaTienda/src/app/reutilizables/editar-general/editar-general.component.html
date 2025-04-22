@@ -1,0 +1,9 @@
+<ng-container *ngIf="modelo">
+    <app-formulario-general 
+      [titulo]="'Editar ' + tipoEntidad" 
+      [modelo]="modelo" 
+      [tipoEntidad]="tipoEntidad"
+      (posteoFormulario)="guardarCambios($event)">
+    </app-formulario-general>
+  </ng-container>
+  

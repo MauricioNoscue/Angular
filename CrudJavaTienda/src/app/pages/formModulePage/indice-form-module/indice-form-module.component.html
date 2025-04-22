@@ -1,0 +1,44 @@
+<button mat-flat-button routerLink="crearFormModule" color="primary">Crear Nuevo</button>
+
+<table mat-table [dataSource]="formModules" class="mat-elevation-z8">
+
+  <!-- Índice -->
+  <ng-container matColumnDef="indice">
+    <th mat-header-cell *matHeaderCellDef>#</th>
+    <td mat-cell *matCellDef="let elemento; let i = index">{{ i + 1 }}</td>
+  </ng-container>
+
+  <!-- Form Name -->
+  <ng-container matColumnDef="formName">
+    <th mat-header-cell *matHeaderCellDef>Nombre del Formulario</th>
+    <td mat-cell *matCellDef="let elemento">{{ elemento.formName }}</td>
+  </ng-container>
+
+  <!-- Module Name -->
+  <ng-container matColumnDef="moduleName">
+    <th mat-header-cell *matHeaderCellDef>Nombre del Módulo</th>
+    <td mat-cell *matCellDef="let elemento">{{ elemento.moduleName }}</td>
+  </ng-container>
+
+  <!-- IsDeleted -->
+  <ng-container matColumnDef="isDeleted">
+    <th mat-header-cell *matHeaderCellDef>Eliminado</th>
+    <td mat-cell *matCellDef="let elemento">{{ elemento.isDeleted ? 'Sí' : 'No' }}</td>
+  </ng-container>
+
+  <!-- Acciones -->
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let elemento">
+      <a mat-flat-button color="accent" [routerLink]="['/formmoduleEditar', elemento.id]">Editar</a>
+      <button mat-flat-button color="warn" (click)="borrar(elemento.id)">Eliminar</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnasMostrar"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnasMostrar"></tr>
+</table>
+
+<div *ngIf="formModules.length === 0">
+  <h2>No hay módulos de formulario disponibles</h2>
+</div>

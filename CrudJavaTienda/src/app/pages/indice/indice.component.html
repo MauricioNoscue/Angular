@@ -1,5 +1,6 @@
 
 @if(Persons){
+   <button mat-flat-button routerLink="crear" class="boton-eliminar">Eliminar</button>
   <table mat-table [dataSource]="Persons" class="mat-elevation-28 indice-elementos">
     <ng-container matColumnDef="firstName">
       <th mat-header-cell *matHeaderCellDef>Nombre</th>

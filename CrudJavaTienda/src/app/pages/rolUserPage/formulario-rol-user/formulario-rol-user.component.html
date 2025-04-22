@@ -1,0 +1,25 @@
+<h1>{{ titulo }}</h1>
+
+<form [formGroup]="form" (ngSubmit)="guardarCambios()">
+
+  <!-- Selección de Usuario -->
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Usuario</mat-label>
+    <mat-select formControlName="userId">
+      <mat-option *ngFor="let u of users" [value]="u.id">{{ u.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+
+  <!-- Selección de Rol -->
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Rol</mat-label>
+    <mat-select formControlName="rolId">
+      <mat-option *ngFor="let r of roles" [value]="r.id">{{ r.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="acciones">
+    <button mat-flat-button color="primary" type="submit">Guardar</button>
+  </div>
+</form>

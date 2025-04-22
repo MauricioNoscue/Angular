@@ -2,19 +2,24 @@
 <div class="d-flex">
 
   <!-- Sidebar fija -->
-  <div class=" text-white p-3 fondoSidenav" style="width: 250px; min-height: 100vh;">
-    <h4>Model Secutiry</h4>
+  <div class="text-white p-3 fondoSidenav" style="width: 250px; min-height: 100vh;">
+    <h4>Model Security</h4>
     <hr>
+
+    
     <ul class="nav nav-pills flex-column">
-      <app-option-button [ruta]="''" [texto]="'Inicio'"></app-option-button>
-      <app-option-button [ruta]="'/crear'" [texto]="'Crear Persona'"></app-option-button>
 
-
-      <app-option-button></app-option-button>
+      <app-option-button [ruta]="''" [texto]="'Indice Persona'"></app-option-button>
+      <app-option-button [ruta]="'/indiceRol'" [texto]="'Indice Rol'"></app-option-button>
+      <app-option-button [ruta]="'/ModuleIndice'" [texto]="'Indice Module'"></app-option-button>
+      <app-option-button [ruta]="'/indicePermission'" [texto]="'Indice Permission'"></app-option-button>
+      <app-option-button [ruta]="'/FormIndice'" [texto]="'Indice formulario'"></app-option-button>
+      <app-option-button [ruta]="'/indiceformModule'" [texto]="'Indice FormModule'"></app-option-button>
+      <app-option-button [ruta]="'/indiceRolUser'" [texto]="'Indice RolUser'"></app-option-button>
+      <app-option-button [ruta]="'/indiceUser'" [texto]="'Indice User'"></app-option-button>
 
 
     </ul>
   </div>
-
 
 </div>

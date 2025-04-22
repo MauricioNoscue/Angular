@@ -1,0 +1,8 @@
+<ng-container *ngIf="modelo">
+    <app-formulario-rol-user
+      titulo="Editar Rol-Usuario"
+      [modelo]="modelo"
+      (posteoFormulario)="guardarCambios($event)">
+    </app-formulario-rol-user>
+  </ng-container>
+  

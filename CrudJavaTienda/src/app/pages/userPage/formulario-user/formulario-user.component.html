@@ -1,0 +1,28 @@
+<h1>{{ titulo }}</h1>
+
+<form [formGroup]="form" (ngSubmit)="guardarCambios()">
+
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Contraseña</mat-label>
+    <input matInput formControlName="password" type="password">
+  </mat-form-field>
+
+  <!-- Select para elegir la persona -->
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Seleccionar Persona</mat-label>
+    <mat-select formControlName="personId">
+      <mat-option *ngFor="let persona of personas" [value]="persona.id">
+        {{ persona.firstName }} {{ persona.lastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="acciones">
+    <button mat-flat-button color="primary" type="submit">Guardar</button>
+  </div>
+</form>

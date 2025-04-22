@@ -1,0 +1,69 @@
+<button mat-flat-button routerLink="crearUser" color="primary">Crear Nuevo</button>
+
+<table mat-table [dataSource]="users" class="mat-elevation-z8">
+
+  <!-- Índice -->
+  <ng-container matColumnDef="indice">
+    <th mat-header-cell *matHeaderCellDef>#</th>
+    <td mat-cell *matCellDef="let elemento; let i = index">{{ i + 1 }}</td>
+  </ng-container>
+
+  <!-- Email -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let elemento">{{ elemento.email }}</td>
+  </ng-container>
+
+  <!-- Password -->
+  <ng-container matColumnDef="password">
+    <th mat-header-cell *matHeaderCellDef>Contraseña</th>
+    <td mat-cell *matCellDef="let elemento">{{ elemento.password }}</td>
+  </ng-container>
+
+  <!-- Active -->
+  <ng-container matColumnDef="active">
+    <th mat-header-cell *matHeaderCellDef>Activo</th>
+    <td mat-cell *matCellDef="let elemento">{{ elemento.active ? 'Sí' : 'No' }}</td>
+  </ng-container>
+
+  <!-- IsDeleted -->
+  <ng-container matColumnDef="isDeleted">
+    <th mat-header-cell *matHeaderCellDef>Eliminado</th>
+    <td mat-cell *matCellDef="let elemento">{{ elemento.isDeleted ? 'Sí' : 'No' }}</td>
+  </ng-container>
+
+  <!-- Registration Date -->
+  <ng-container matColumnDef="registrationDate">
+    <th mat-header-cell *matHeaderCellDef>Fecha Registro</th>
+    <td mat-cell *matCellDef="let elemento">{{ elemento.registrationDate | date:'short' }}</td>
+  </ng-container>
+
+  <!-- Person ID -->
+  <ng-container matColumnDef="personId">
+    <th mat-header-cell *matHeaderCellDef>ID Persona</th>
+    <td mat-cell *matCellDef="let elemento">{{ elemento.personId }}</td>
+  </ng-container>
+
+  <!-- Name Person -->
+  <ng-container matColumnDef="namePerson">
+    <th mat-header-cell *matHeaderCellDef>Nombre Persona</th>
+    <td mat-cell *matCellDef="let elemento">{{ elemento.namePerson }}</td>
+  </ng-container>
+
+  <!-- Acciones -->
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let elemento">
+      <a mat-flat-button color="accent" [routerLink]="['/editaruser', elemento.id]">Editar</a>
+      <button mat-flat-button color="warn" (click)="borrar(elemento.id)">Eliminar</button>
+      <button mat-flat-button color="warn" (click)="Logico(elemento.id)">Logico</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnasMostrar"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnasMostrar;"></tr>
+</table>
+
+<div *ngIf="users.length === 0">
+  <h2>No hay usuarios disponibles</h2>
+</div>

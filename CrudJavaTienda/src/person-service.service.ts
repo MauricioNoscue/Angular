@@ -16,8 +16,6 @@ export class PersonServiceService {
   public Login(person:PersonCreation){
     return this.http.post(`${this.urlBase}/login`,person);
   }
-
-
   public TraerTodo():Observable<Person[]>{
     return this.http.get<Person[]>(this.urlBase);
   }
