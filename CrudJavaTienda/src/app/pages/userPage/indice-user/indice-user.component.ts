@@ -6,6 +6,7 @@ import { UserService } from '../../../../services/user.service';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-indice-user',
@@ -15,21 +16,20 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class IndiceUserComponent {
   userService = inject(UserService);
+  authService = inject(AuthService);
   users: User[] = [];
+  isAdmin = false;
 
-  columnasMostrar = [
-    'indice',
-    'email',
-    'password',
-    'active',
-    'isDeleted',
-    'registrationDate',
-    'personId',
-    'namePerson',
-    'acciones'
-  ];
+  columnasMostrar: string[] = [];
 
   constructor() {
+ this.isAdmin = this.authService.getUserRoles().includes('Admin');
+
+    // Agregamos dinámicamente la columna 'isDeleted' si es admin
+    this.columnasMostrar = this.isAdmin
+      ? ['indice', 'email', 'password', 'active', 'isDeleted', 'registrationDate', 'personId', 'namePerson', 'acciones']
+      : ['indice', 'email', 'password', 'active', 'registrationDate', 'personId', 'namePerson', 'acciones'];
+
     this.cargarDatos();
   }
 
@@ -44,10 +44,11 @@ export class IndiceUserComponent {
       this.cargarDatos();
     });
   }
+
   Logico(id: number) {
     this.userService.logico(id).subscribe(() => {
       this.cargarDatos();
-      alert("elimindo logicamente")
+      alert("Eliminado lógicamente");
     });
   }
 }

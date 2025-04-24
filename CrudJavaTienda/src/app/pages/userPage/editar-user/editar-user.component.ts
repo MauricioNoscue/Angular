@@ -36,7 +36,7 @@ export class EditarUserComponent {
     }
 
     this.userService.actualizar(entidad).subscribe(() => {
-      this.router.navigate(['/indiceUser']);  // Cambia la ruta a la que deseas redirigir después de la actualización
+      this.router.navigate(['principal/indiceUser']);  // Cambia la ruta a la que deseas redirigir después de la actualización
     });
   }
 }

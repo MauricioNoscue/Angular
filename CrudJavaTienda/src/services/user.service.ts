@@ -12,6 +12,8 @@ export class UserService {
   constructor() { }
   private http = inject(HttpClient);
   private urlBase = environment.apiURL + '/api/User';
+  private urlBase2 = environment.apiURL + '/api';
+
 
 
   
@@ -35,5 +37,9 @@ export class UserService {
   }
   public logico(id: number) {  
     return this.http.put(`${this.urlBase}/Logico/${id}`, {});  
+}
+
+public login(credentials: { email: string, password: string }) {
+  return this.http.post<any>(`${this.urlBase2}/Auth/login`, credentials);
 }
 }

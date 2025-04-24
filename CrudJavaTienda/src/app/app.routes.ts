@@ -25,17 +25,25 @@ import { EditarRolUserComponent } from './pages/rolUserPage/editar-rol-user/edit
 import { IndiceUserComponent } from './pages/userPage/indice-user/indice-user.component';
 import { CrearUserComponent } from './pages/userPage/crear-user/crear-user.component';
 import { EditarUserComponent } from './pages/userPage/editar-user/editar-user.component';
+import { LoginComponent } from './pages/login/login.component';
+import { authGuard } from '../auth.guard';
 export const routes: Routes = [
+{path: '', component :LoginComponent},
   {
-    path: '',
-    component: PrincipalComponent,
+    path: 'principal',
+    component: PrincipalComponent, canActivate: [authGuard],
     children: [
       { path: '', redirectTo: 'indice', pathMatch: 'full' },
       { path: 'indice', component: IndiceComponent },
       { path: 'indice/crear', component: CrearComponent },
-      { path: 'actualizar/:id', component: EditarComponent },
+      { path: 'indice/actualizar/:id', component: EditarComponent },
+
+
       { path: 'indiceRol/rolCrear', component: RolCrearComponent },
       { path: 'rol/rolCrear', component: RolCrearComponent },
+
+
+
       { path: 'ModuleIndice/moduleCrear', component: ModuleCrearComponent },
       { path: 'Module/moduleCrear', component: ModuleCrearComponent },
       { path: 'indicePermission/permissionCrear', component: PermissionCrearComponent },
@@ -44,7 +52,7 @@ export const routes: Routes = [
       { path: 'form/formCrear', component: FormCrearComponent },
       { path: 'indiceRol', component: RolIndiceComponent },
       { path: 'indicePermission', component: PermisionIndiceComponent },
-      { path: 'ModuleIndice', component: ModuleIndiceComponent },
+      { path: 'principal/ModuleIndice', component: ModuleIndiceComponent },
       { path: 'FormIndice', component: FormIndiceComponent },
       { path: 'rol', component: RolIndiceComponent },
       { path: 'form', component: FormIndiceComponent },
@@ -52,26 +60,13 @@ export const routes: Routes = [
       { path: 'permission', component: PermisionIndiceComponent },
       { path: 'indiceformModule', component: IndiceFormModuleComponent },
       { path: 'indiceformModule/crearFormModule', component: CrearFormModuleComponent },
-      { path: 'formmoduleEditar/:id', component: EditarFormModuleComponent },
-
+      { path: 'indiceformModule/formmoduleEditar/:id', component: EditarFormModuleComponent },
       { path: 'indiceRolUser', component: IndiceRolUserComponent },
       { path: 'indiceRolUser/crearRolUser', component: CrearRolUserComponent },
       { path: 'roluserEditar/:id', component: EditarRolUserComponent },
       { path: 'indiceUser', component: IndiceUserComponent },
       { path: 'indiceUser/crearUser', component: CrearUserComponent },
       { path: 'editaruser/:id', component: EditarUserComponent },
-
-
-
-
-
-
-
-
-
-      
-
-      
 
       {
         path: 'rol/:id',
@@ -94,6 +89,14 @@ export const routes: Routes = [
         data: {
           endpoint: 'Module',
           tipoEntidad: 'Module'
+        }
+      },
+      {
+        path: 'permission/:id',
+        component: EditarGeneralComponent,
+        data: {
+          endpoint: 'permission',
+          tipoEntidad: 'permission'
         }
       }
       

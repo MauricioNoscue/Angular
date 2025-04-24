@@ -17,7 +17,7 @@ export class CrearFormModuleComponent {
     this.formModuleService.Crear(formMod).subscribe({
       next: (respuesta) => {
         console.log('Creado:', respuesta);
-        this.router.navigate(['/indiceformModule']);
+        this.router.navigate(['principal//indiceformModule']);
       },
       error: (err) => {
         console.error('Error al crear:', err);

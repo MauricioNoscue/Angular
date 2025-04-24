@@ -32,7 +32,7 @@ export class FormularioFormModuleComponent implements OnInit {
     moduleId: [null as number | null],
     formName: ['Nombre Quemado del Formulario'],
     moduleName: ['Nombre Quemado del Módulo'],
-    isDeleted: [true]
+    isDeleted: [false]
   });
   
 

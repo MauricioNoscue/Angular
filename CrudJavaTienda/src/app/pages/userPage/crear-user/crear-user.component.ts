@@ -17,7 +17,7 @@ export class CrearUserComponent {
     this.userService.Crear(user).subscribe({
       next: (respuesta) => {
         console.log('Usuario creado:', respuesta);
-        this.router.navigate(['/indiceUser']); // Cambia la ruta según tus necesidades
+        this.router.navigate(['/principal/indiceUser']); // Cambia la ruta según tus necesidades
       },
       error: (err) => {
         console.error('Error al crear usuario:', err);

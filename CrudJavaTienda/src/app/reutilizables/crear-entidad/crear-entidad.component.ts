@@ -18,7 +18,7 @@ export class CrearEntidadComponent<T extends object> {
 
   guardarCambios(entidad: Partial<T>) {
     this.servicio.create(this.endpoint, entidad).subscribe(() => {
-      this.router.navigate([`/${this.endpoint}`]);
+      this.router.navigate([`/principal/${this.endpoint}`]);
     });
   }
 }

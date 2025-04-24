@@ -40,7 +40,7 @@ export class EditarComponent  implements OnInit{
     }
 
     this.PersonServiceService.actualizarIdNombre(person).subscribe(() => {
-      this.router.navigate(['']);
+      this.router.navigate(['principal']);
     });
   }
 

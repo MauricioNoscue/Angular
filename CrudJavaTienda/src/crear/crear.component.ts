@@ -16,7 +16,7 @@ export class CrearComponent {
 
   guardarCambios(person :PersonCreation){
     this.PersonServiceService.Crear(person).subscribe(()=>{
-      this.router.navigate(['indice']);
+      this.router.navigate(['principal/indice']);
     })
 
   }

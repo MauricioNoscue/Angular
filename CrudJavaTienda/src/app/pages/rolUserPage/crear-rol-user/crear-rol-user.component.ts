@@ -18,7 +18,7 @@ export class CrearRolUserComponent {
     this.rolUserService.Crear(rolUserData).subscribe({
       next: (respuesta) => {
         console.log('RolUsuario Creado:', respuesta);
-        this.router.navigate(['/indiceRolUser']);  // Redirige a la lista de RolUser
+        this.router.navigate(['/principal/indiceRolUser']);  // Redirige a la lista de RolUser
       },
       error: (err) => {
         console.error('Error al crear RolUser:', err);

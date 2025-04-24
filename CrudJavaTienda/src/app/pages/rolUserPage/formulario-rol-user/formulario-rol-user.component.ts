@@ -33,7 +33,7 @@ export class FormularioRolUserComponent implements OnInit {
     rolId: [null as number | null],
     userName: ['sdsd'],
     rolName: ['dsdsdds'],
-    isDeleted: [true]
+    isDeleted: [false]
   });
   
 

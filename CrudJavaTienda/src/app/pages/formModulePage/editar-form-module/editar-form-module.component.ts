@@ -36,7 +36,7 @@ export class EditarFormModuleComponent  implements OnInit{
     }
   
     this.service.actualizarIdNombre(entidad).subscribe(() => {
-      this.router.navigate(['/indiceformModule']); // Reemplaza por tu ruta real si es otra
+      this.router.navigate(['/principal/indiceformModule']); // Reemplaza por tu ruta real si es otra
     });
   }
   

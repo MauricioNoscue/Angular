@@ -1,0 +1,18 @@
+<div class="login-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-box">
+      <h2 class="title">Login</h2>
+  
+      <input formControlName="email" type="email" placeholder="Email" class="input-field" />
+      <div class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        Email inválido.
+      </div>
+  
+      <input formControlName="password" type="password" placeholder="Password" class="input-field" />
+      <div class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        Contraseña requerida (mín. 6 caracteres).
+      </div>
+  
+      <button type="submit" class="login-button" [disabled]="loginForm.invalid">Log In</button>
+    </form>
+  </div>
+  

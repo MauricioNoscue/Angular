@@ -43,7 +43,7 @@ export class EditarRolUserComponent {
     // Actualizar el rolUser
     this.rolUserService.actualizarIdNombre(entidad).subscribe(() => {
       // Redirigir a la página del índice después de guardar los cambios
-      this.router.navigate(['/indiceRolUser']);
+      this.router.navigate(['/principal/indiceRolUser']);
     });
   }
 }

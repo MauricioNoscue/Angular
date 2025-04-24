@@ -2,3 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.boton-personalizado-eliminar {
+    background-color: #cf3f1f !important; /* Color personalizado */
+    color: white !important; /* Cambiar el color del texto si es necesario */
+  }

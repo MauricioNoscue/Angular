@@ -39,7 +39,7 @@
     <ng-container matColumnDef="acciones">
       <th mat-header-cell *matHeaderCellDef>Acciones</th>
       <td mat-cell *matCellDef="let person">
-        <a mat-flat-button routerLink="/actualizar/{{person.id}}" class="boton-eliminar">Editar</a>
+        <a mat-flat-button routerLink="actualizar/{{person.id}}" class="boton-eliminar">Editar</a>
         <button mat-flat-button  (click)="borrar(person.id)" class="boton-eliminar">Eliminar</button>
       </td>
     </ng-container>

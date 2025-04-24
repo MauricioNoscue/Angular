@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './editar-general.component.css'
 })
 export class EditarGeneralComponent implements OnInit {
-  private servicio = inject(ServiciosService<any>); // 👈 ahora sin generics aquí
+  private servicio = inject(ServiciosService<any>);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
@@ -40,7 +40,7 @@ export class EditarGeneralComponent implements OnInit {
     }
 
     this.servicio.update(this.endpoint, entidad).subscribe(() => {
-      this.router.navigate([`/${this.endpoint}`]);
+      this.router.navigate([`/principal/${this.endpoint}`]);
     });
   }
 }

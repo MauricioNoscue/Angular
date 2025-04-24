@@ -30,8 +30,10 @@
   <ng-container matColumnDef="acciones">
     <th mat-header-cell *matHeaderCellDef>Acciones</th>
     <td mat-cell *matCellDef="let elemento">
-      <a mat-flat-button color="accent" [routerLink]="['/roluserEditar', elemento.id]">Editar</a>
-      <button mat-flat-button color="warn" (click)="borrar(elemento.id)">Eliminar</button>
+      <a mat-flat-button color="accent" [routerLink]="['/principal/roluserEditar', elemento.id]">Editar</a>
+      <button mat-flat-button class="boton-personalizado-eliminar" (click)="borrar(elemento.id)">Eliminar</button>
+      <p><mat-slide-toggle *ngIf="isAdmin" [(ngModel)]="elemento.isDeleted"  (click)="patch(elemento.id)">Eliminado lógico</mat-slide-toggle></p>
+
     </td>
   </ng-container>
 

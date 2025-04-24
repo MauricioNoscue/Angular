@@ -26,8 +26,8 @@
     <td mat-cell *matCellDef="let elemento">{{ elemento.active ? 'Sí' : 'No' }}</td>
   </ng-container>
 
-  <!-- IsDeleted -->
-  <ng-container matColumnDef="isDeleted">
+  <!-- IsDeleted (solo si es Admin) -->
+  <ng-container *ngIf="columnasMostrar.includes('isDeleted')" matColumnDef="isDeleted">
     <th mat-header-cell *matHeaderCellDef>Eliminado</th>
     <td mat-cell *matCellDef="let elemento">{{ elemento.isDeleted ? 'Sí' : 'No' }}</td>
   </ng-container>
@@ -54,9 +54,9 @@
   <ng-container matColumnDef="acciones">
     <th mat-header-cell *matHeaderCellDef>Acciones</th>
     <td mat-cell *matCellDef="let elemento">
-      <a mat-flat-button color="accent" [routerLink]="['/editaruser', elemento.id]">Editar</a>
-      <button mat-flat-button color="warn" (click)="borrar(elemento.id)">Eliminar</button>
-      <button mat-flat-button color="warn" (click)="Logico(elemento.id)">Logico</button>
+      <a mat-flat-button color="accent" [routerLink]="['/principal/editaruser', elemento.id]">Editar</a>
+      <button mat-flat-button class="boton-personalizado-eliminar" (click)="borrar(elemento.id)">Eliminar</button>
+      <button mat-flat-button color="warn" *ngIf="isAdmin"(click)="Logico(elemento.id)">Lógico</button>
     </td>
   </ng-container>
 

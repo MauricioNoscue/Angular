@@ -31,7 +31,7 @@ export class FormularioGeneralComponent<T extends object> implements OnInit {
     const baseForm: Record<string, any> = {
       name: [''],
       description: [''],
-      isDeleted: true
+      isDeleted: false
     };
 
     // Si es pepito, agregar campo adicional
